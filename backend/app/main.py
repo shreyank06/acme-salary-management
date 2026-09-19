@@ -37,7 +37,7 @@ def create_app(session_factory: sessionmaker[Session] | None = None) -> FastAPI:
     async def _conflict(_: Request, exc: ConflictError):
         return JSONResponse({"detail": str(exc)}, status_code=409)
 
-    @app.get("/health", tags=["ops"])
+    @app.api_route("/health", methods=["GET", "HEAD"], tags=["ops"])
     def health():
         return {"status": "ok"}
 

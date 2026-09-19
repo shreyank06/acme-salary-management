@@ -59,3 +59,7 @@ def test_facets(client):
 
 def test_health(client):
     assert client.get("/health").json() == {"status": "ok"}
+
+
+def test_health_accepts_head_for_uptime_monitors(client):
+    assert client.head("/health").status_code == 200
