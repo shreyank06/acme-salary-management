@@ -55,6 +55,5 @@ def histogram(values: Sequence[int], bucket_count: int) -> list[Bucket]:
     for v in values:
         counts[min(int((v - lo) / width), bucket_count - 1)] += 1
     return [
-        Bucket(round(lo + i * width), round(lo + (i + 1) * width), c)
-        for i, c in enumerate(counts)
+        Bucket(round(lo + i * width), round(lo + (i + 1) * width), c) for i, c in enumerate(counts)
     ]

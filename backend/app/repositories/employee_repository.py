@@ -88,9 +88,7 @@ class EmployeeRepository:
         offset: int = 0,
         limit: int = 25,
     ) -> tuple[list[Employee], int]:
-        total = self.session.scalar(
-            _apply_filters(select(func.count(Employee.id)), filters)
-        )
+        total = self.session.scalar(_apply_filters(select(func.count(Employee.id)), filters))
         column = SORTABLE[sort_by]
         order = column.desc() if descending else column.asc()  # type: ignore[attr-defined]
         stmt = (

@@ -6,11 +6,19 @@ def seed(repo: EmployeeRepository):
     rows = [
         make_employee(full_name="Asha Rao", email="asha@x.test", salary=2_000_000),
         make_employee(
-            full_name="Bob Stone", email="bob@x.test", country="US", currency="USD",
-            department="Sales", job_title="Account Executive", salary=90_000,
+            full_name="Bob Stone",
+            email="bob@x.test",
+            country="US",
+            currency="USD",
+            department="Sales",
+            job_title="Account Executive",
+            salary=90_000,
         ),
         make_employee(
-            full_name="Carla Diaz", email="carla@x.test", country="US", currency="USD",
+            full_name="Carla Diaz",
+            email="carla@x.test",
+            country="US",
+            currency="USD",
             salary=150_000,
         ),
     ]

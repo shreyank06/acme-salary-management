@@ -15,8 +15,11 @@ def build(session):
     ):
         repo.add(
             make_employee(
-                email=f"e{i}@x.test", country=country, currency=cur,
-                department=dept, salary=salary,
+                email=f"e{i}@x.test",
+                country=country,
+                currency=cur,
+                department=dept,
+                salary=salary,
             )
         )
     return InsightsService(repo)

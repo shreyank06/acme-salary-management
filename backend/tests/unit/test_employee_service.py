@@ -10,8 +10,13 @@ from app.services.employee_service import EmployeeService
 
 def payload(**overrides) -> EmployeeCreate:
     data = dict(
-        full_name="Asha Rao", email="Asha@Acme.com", job_title="Engineer",
-        department="Engineering", country="IN", salary=2_000_000, hire_date=date(2022, 1, 1),
+        full_name="Asha Rao",
+        email="Asha@Acme.com",
+        job_title="Engineer",
+        department="Engineering",
+        country="IN",
+        salary=2_000_000,
+        hire_date=date(2022, 1, 1),
     )
     data.update(overrides)
     return EmployeeCreate(**data)
