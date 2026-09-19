@@ -2,10 +2,12 @@
 
 import { useState } from "react";
 import { ErrorNotice } from "@/components/common/ErrorNotice";
+import { SlowServerNotice } from "@/components/common/SlowServerNotice";
 import { FilterSelect } from "@/components/common/FilterSelect";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useAsync } from "@/hooks/useAsync";
+import { useDelayedFlag } from "@/hooks/useDelayedFlag";
 import { useReferenceData } from "@/hooks/useReferenceData";
 import { api } from "@/lib/api";
 import type { GroupBy } from "@/lib/types";
@@ -30,6 +32,7 @@ export function InsightsView() {
   const distribution = useAsync(() => api.distribution(scope), [country]);
 
   const error = summary.error ?? breakdown.error ?? distribution.error;
+  const slow = useDelayedFlag(summary.loading && !summary.data && !error, 4000);
   const reload = () => {
     summary.reload();
     breakdown.reload();
@@ -59,6 +62,7 @@ export function InsightsView() {
       </div>
 
       {error && <ErrorNotice message={error} onRetry={reload} />}
+      <SlowServerNotice show={slow} />
       <SummaryCards summary={summary.data} />
 
       <Card>

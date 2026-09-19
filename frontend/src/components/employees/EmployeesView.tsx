@@ -3,8 +3,10 @@
 import { useState } from "react";
 import { toast } from "sonner";
 import { ErrorNotice } from "@/components/common/ErrorNotice";
+import { SlowServerNotice } from "@/components/common/SlowServerNotice";
 import { Button } from "@/components/ui/button";
 import { useAsync } from "@/hooks/useAsync";
+import { useDelayedFlag } from "@/hooks/useDelayedFlag";
 import { useDebounce } from "@/hooks/useDebounce";
 import { useReferenceData } from "@/hooks/useReferenceData";
 import { api } from "@/lib/api";
@@ -44,6 +46,8 @@ export function EmployeesView() {
   };
   const { data, error, loading, reload } = useAsync(() => api.listEmployees(query), [query]);
 
+  const slow = useDelayedFlag(loading && !data && !error, 4000);
+
   // Any change to filters/sort goes back to page 1 (done in handlers, not in an effect).
   function changeFilters(next: FilterState) {
     setFilters(next);
@@ -67,6 +71,7 @@ export function EmployeesView() {
       </div>
       <EmployeeFilters value={filters} onChange={changeFilters} countries={countries} facets={facets} />
       {error && <ErrorNotice message={error} onRetry={reload} />}
+      <SlowServerNotice show={slow} />
       <EmployeeTable
         employees={data?.items}
         loading={loading}
