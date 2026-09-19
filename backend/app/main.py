@@ -44,4 +44,3 @@ def create_app(session_factory: sessionmaker[Session] | None = None) -> FastAPI:
     app.include_router(employees.router)
     app.include_router(insights.router)
     return app
-
