@@ -1,5 +1,9 @@
 # Architecture & Trade-offs
 
+![Component diagram](architecture-diagram.png)
+
+Simplified view:
+
 ```
 ┌────────────────────┐   REST/JSON   ┌───────────────────────────────────────────┐
 │ Next.js (TS)       │ ────────────▶ │ FastAPI                                   │

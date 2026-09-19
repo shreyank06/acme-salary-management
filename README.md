@@ -4,7 +4,7 @@ Web app for an HR Manager to manage salaries for ~10,000 employees across 10 cou
 "how do we pay people?" — replacing Excel.
 
 - **Requirements (1 page):** [docs/requirements.md](docs/requirements.md)
-- **Architecture & trade-offs:** [docs/architecture.md](docs/architecture.md)
+- **Architecture & trade-offs:** [docs/architecture.md](docs/architecture.md) (component diagram: [docs/architecture-diagram.png](docs/architecture-diagram.png))
 - **AI workflow:** [docs/ai-workflow.md](docs/ai-workflow.md)
 
 ## Live demo
