@@ -29,5 +29,4 @@ Constraints I set, which shaped every step:
 
 ## 4. Where I overrode or corrected the AI
 See `docs/ai-workflow.md`. In short: reserved `.test` email TLD in test data, lint-flagged
-`setState`-in-effect hooks (redesigned), Vitest 4/oxc JSX config, a self-referential font variable,
-and removing the AI co-author trailers from commit history when I preferred authorship to be mine.
+`setState`-in-effect hooks (redesigned), Vitest 4/oxc JSX config, and a self-referential font variable.
