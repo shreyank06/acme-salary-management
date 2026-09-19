@@ -7,6 +7,13 @@ Web app for an HR Manager to manage salaries for ~10,000 employees across 10 cou
 - **Architecture & trade-offs:** [docs/architecture.md](docs/architecture.md)
 - **AI workflow:** [docs/ai-workflow.md](docs/ai-workflow.md)
 
+## Live demo
+- **App:** https://acme-salary-management-nine.vercel.app
+- **API docs:** https://acme-salary-api-pcrm.onrender.com/docs
+
+> The API runs on Render's free tier and sleeps when idle, so the first request can take ~50 seconds.
+> Data resets to the seeded 10,000 employees whenever the API restarts (free tier has no persistent disk).
+
 ## Features
 - Employee CRUD; search, filter (country / department / title / salary range), sort, server-side pagination
 - Insights: headcount, payroll, avg/median/min/max by country, department, job title; salary distribution
